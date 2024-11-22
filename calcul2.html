@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+      
+      .div {
+
+background-color: #a6bda6;
+padding: 20px;
+width:98%;
+height: 50px;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+        .calculator {
+            background-color: #3b583c;
+            /* Verde claro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .display {
+            width: 220px;
+            height: 50px;
+            background-color: #fff;
+            color: #333;
+            text-align: right;
+            padding: 10px;
+            font-size: 2em;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            background-color: #8bc34a;
+            /* Verde */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #7cb342;
+            /* Verde mais escuro */
+        }
+
+        .button:active {
+            background-color: #388e3c;
+            /* Verde bem escuro */
+        }
+
+        .equal {
+            background-color: #ff5722;
+            /* Laranja */
+        }
+
+        .equal:hover {
+            background-color: #f44336;
+            /* Vermelho */
+        }
+
+        .clear {
+            background-color: #f44336;
+            /* Vermelho */
+        }
+
+        .clear:hover {
+            background-color: #e53935;
+            /* Vermelho mais escuro */
+        }
+
+
+
+    </style>
+
+    <script>
+
+        var n1 = 0;
+        var n2 = 0;
+        var operador;
+
+
+        function btn_(parametro) {
+
+            if (document.getElementById("resultado").innerHTML == 0) {
+                document.getElementById("resultado").innerHTML = parametro;
+            }
+            else {
+                document.getElementById("resultado").innerHTML += parametro;
+            }
+
+        }
+
+        function somar() {
+            operador = "+";
+            n1 = document.getElementById("resultado").innerHTML;
+            document.getElementById("resultado").innerHTML = 0;
+        }
+
+        function resultar() {
+            n2 = document.getElementById("resultado").innerHTML;
+            if (operador == "+") document.getElementById("resultado").innerHTML = Number(n1) + Number(n2);
+           else  if (operador == "-") document.getElementById("resultado").innerHTML = Number(n1) - Number(n2);
+           else  if (operador == "0") document.getElementById("resultado").innerHTML = 0
+           else  if (operador == "*") document.getElementById("resultado").innerHTML = Number(n1) * Number(n2);
+           else  if (operador == "/") document.getElementById("resultado").innerHTML = Number(n1) / Number(n2);
+        }
+
+
+        function subtrair() {
+            operador = "-";
+            n1 = document.getElementById("resultado").innerHTML;
+            document.getElementById("resultado").innerHTML = 0;
+        }
+
+        function apagar() {
+           n1 = 0;
+           n2 = 0;
+           operador = "";
+           document.getElementById("resultado").innerHTML = 0;
+        }
+
+        function multiplicaçao() {
+            operador = "*";
+            n1 = document.getElementById("resultado").innerHTML;
+            document.getElementById("resultado").innerHTML = 0;
+
+        }
+   
+        function divisão() {
+            operador = "/";
+            n1 = document.getElementById("resultado").innerHTML;
+            document.getElementById("resultado").innerHTML = 0;
+
+        }
+
+
+    </script>
+
+
+</head>
+
+<body>
+ <div class="div">
+    <h1 id="resultado"  ></h1>
+ </div>
+   
+
+ 
+
+    <div  class="calculator"> 
+        <div class="buttons">
+        <button  class="button clear" onclick="apagar()">C</button>
+        <button class="button" onclick="divisão()">/</button>
+        <button class="button" onclick="multiplicaçao()">x</button>
+        <button class="button equal" onclick="resultar()">=</button>
+    
+
+    
+        <button class="button" onclick="btn_(7)">7</button>
+        <button class="button" onclick="btn_(8)">8</button>
+        <button class="button" onclick="btn_(9)">9</button>
+        <button class="button" onclick="subtrair()">-</button>
+    
+
+   
+        <button class="button" onclick="btn_(4)">4</button>
+        <button class="button" onclick="btn_(5)">5</button>
+        <button class="button" onclick="btn_(6)">6</button>
+        <button class="button" onclick="somar()">+</button>
+   
+
+  
+        <button class="button" onclick="btn_(1)">1</button>
+        <button class="button" onclick="btn_(2)">2</button>
+        <button class="button" onclick="btn_(3)">3</button>
+        <button class="button" onclick="btn_(0)">0</button>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
